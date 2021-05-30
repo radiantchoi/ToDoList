@@ -65,7 +65,7 @@
         <!--New To-Do-->
         <scene sceneID="GQC-MS-6p6">
             <objects>
-                <tableViewController id="8XK-pD-9dp" sceneMemberID="viewController">
+                <tableViewController id="8XK-pD-9dp" customClass="ToDoDetailTableViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Ap1-x5-rbb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -95,6 +95,9 @@
                                                             <rect key="frame" x="53" y="0.0" width="337" height="43.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
+                                                            <connections>
+                                                                <action selector="textEditingChanged:" destination="8XK-pD-9dp" eventType="editingDidEnd" id="ZTO-Bt-emW"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
@@ -118,8 +121,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="G4a-yd-IM2">
-                                                    <rect key="frame" x="20" y="12" width="33" height="20.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Due Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="G4a-yd-IM2">
+                                                    <rect key="frame" x="20" y="12" width="71" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -201,6 +204,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="dueDateLebel" destination="bPW-J7-y2D" id="SsL-Ro-shV"/>
+                        <outlet property="dueDatePickerView" destination="L3V-KY-BCC" id="TnJ-ZE-rL7"/>
+                        <outlet property="isCompleteButton" destination="IYg-PG-yFj" id="6lJ-ph-ioD"/>
+                        <outlet property="notesTextView" destination="szM-bf-2AC" id="E9H-zg-AM0"/>
+                        <outlet property="saveButton" destination="fnI-R2-Ght" id="2Cy-gT-aZo"/>
+                        <outlet property="titleTextField" destination="8XY-f3-I23" id="suB-XB-HB8"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C9K-Jr-VGq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="TMn-X2-W8q" userLabel="Exit" sceneMemberID="exit"/>
