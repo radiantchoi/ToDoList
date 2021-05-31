@@ -16,14 +16,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoCellIdentifier" id="0wR-Vt-Gpe">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoCellIdentifier" id="0wR-Vt-Gpe" customClass="ToDoCell" customModule="ToDoList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0wR-Vt-Gpe" id="BxU-z2-Zns">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQt-hf-otX">
+                                            <rect key="frame" x="8" y="-0.5" width="45" height="44.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="45" id="S6V-wQ-XF7"/>
+                                            </constraints>
+                                            <state key="normal" image="Unchecked"/>
+                                            <state key="selected" image="Checked"/>
+                                            <connections>
+                                                <action selector="completeButtonTapped" destination="0wR-Vt-Gpe" eventType="touchUpInside" id="Oqx-Sx-8Ge"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zl8-K8-oE7">
+                                            <rect key="frame" x="61" y="11.5" width="325" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="zl8-K8-oE7" firstAttribute="centerY" secondItem="BxU-z2-Zns" secondAttribute="centerY" id="9mw-j8-que"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="zl8-K8-oE7" secondAttribute="trailing" constant="8" id="Yj5-Sc-sMp"/>
+                                        <constraint firstItem="XQt-hf-otX" firstAttribute="leading" secondItem="BxU-z2-Zns" secondAttribute="leading" constant="8" id="ZRI-k8-vYT"/>
+                                        <constraint firstItem="zl8-K8-oE7" firstAttribute="leading" secondItem="XQt-hf-otX" secondAttribute="trailing" constant="8" id="nZo-9n-Onk"/>
+                                        <constraint firstItem="XQt-hf-otX" firstAttribute="centerY" secondItem="BxU-z2-Zns" secondAttribute="centerY" id="uWz-sK-Csp"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="isCompleteButton" destination="XQt-hf-otX" id="uYG-Or-xAY"/>
+                                    <outlet property="titleLabel" destination="zl8-K8-oE7" id="y2w-qS-2wC"/>
                                     <segue destination="Fh6-Dy-Sb8" kind="presentation" identifier="EditToDo" id="6zV-hH-iXK"/>
                                 </connections>
                             </tableViewCell>
