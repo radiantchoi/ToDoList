@@ -17,6 +17,7 @@ class ToDoTableViewController: UITableViewController, ToDoCellDelegate {
             todo.isComplete = !todo.isComplete
             todos[indexPath.row] = todo
             tableView.reloadRows(at: [indexPath], with: .automatic)
+            ToDo.saveToDos(todos)
         }
     }
     
@@ -70,15 +71,10 @@ extension ToDoTableViewController {
         if editingStyle == .delete {
             todos.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        /*
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
-        */
+            ToDo.saveToDos(todos)
         }
     }
     
-
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
@@ -122,6 +118,8 @@ extension ToDoTableViewController {
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
         }
+        
+        ToDo.saveToDos(todos)
     }
     
 }
