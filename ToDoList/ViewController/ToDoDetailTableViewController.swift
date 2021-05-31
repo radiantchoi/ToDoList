@@ -29,11 +29,12 @@ class ToDoDetailTableViewController: UITableViewController {
 }
 
 extension ToDoDetailTableViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let todo = todo {
-            navigationItem.title = "To=Do"
+            navigationItem.title = "To-Do"
             titleTextField.text = todo.title
             isCompleteButton.isSelected = todo.isComplete
             dueDatePickerView.date = todo.dueDate
