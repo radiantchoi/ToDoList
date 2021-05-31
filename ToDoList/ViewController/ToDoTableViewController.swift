@@ -79,6 +79,15 @@ extension ToDoTableViewController {
         return true
     }
     */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "EditToDo", let navController = segue.destination as? UINavigationController, let todoDetailTableViewController = navController.topViewController as? ToDoDetailTableViewController {
+            let indexPath = tableView.indexPathForSelectedRow!
+            let selectedToDo = todos[indexPath.row]
+            todoDetailTableViewController.todo = selectedToDo
+        }
+    }
 }
 
 extension ToDoTableViewController {
