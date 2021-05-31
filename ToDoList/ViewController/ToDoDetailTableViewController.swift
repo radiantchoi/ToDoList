@@ -25,6 +25,7 @@ class ToDoDetailTableViewController: UITableViewController {
     let normalCellHeight: CGFloat = 44
     let largeCellHeight: CGFloat = 200
     
+    var todo: ToDo?
 }
 
 extension ToDoDetailTableViewController {
@@ -73,14 +74,21 @@ extension ToDoDetailTableViewController {
             tableView.endUpdates()
         }
     }
-    /*
+    
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        
+        guard segue.identifier == "saveUnwind" else { return }
+        
+        let title = titleTextField.text!
+        let isComplete = isCompleteButton.isSelected
+        let dueDate = dueDatePickerView.date
+        let notes = notesTextView.text
+        
+        todo = ToDo(title: title, isComplete: isComplete, dueDate: dueDate, notes: notes)
     }
-    */
+    
 }
 
 extension ToDoDetailTableViewController {
@@ -100,4 +108,5 @@ extension ToDoDetailTableViewController {
     @IBAction func datePickerChanged(_ sender: UIDatePicker) {
         updateDueDateLabel(date: dueDatePickerView.date)
     }
+    
 }

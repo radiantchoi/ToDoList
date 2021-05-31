@@ -11,10 +11,6 @@ class ToDoTableViewController: UITableViewController {
     
     var todos = [ToDo]()
     
-    @IBAction func unwindToToDoList(segue: UIStoryboardSegue) {
-        
-    }
-    
 }
 
 extension ToDoTableViewController {
@@ -83,16 +79,20 @@ extension ToDoTableViewController {
         return true
     }
     */
+}
 
-    /*
-    // MARK: - Navigation
+extension ToDoTableViewController {
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func unwindToToDoList(segue: UIStoryboardSegue) {
+        guard segue.identifier == "saveUnwind" else { return }
+        let sourceViewController = segue.source as! ToDoDetailTableViewController
+        if let todo = sourceViewController.todo {
+            let newIndexPath = IndexPath(row: todos.count, section: 0)
+            todos.append(todo)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
     }
-    */
-
+    
 }
 
 
